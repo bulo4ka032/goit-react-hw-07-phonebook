@@ -6,8 +6,16 @@ import {
   ContactsTitle,
   ContactsWrapper,
 } from 'components/App.styled';
+import { useDispatch } from 'react-redux';
+import { useEffect } from 'react';
+import { fetchContacts } from 'redux/contactsOptions';
 
 export const App = () => {
+  const dispatch = useDispatch();
+  useEffect(() => {
+    dispatch(fetchContacts());
+  }, [dispatch]);
+
   return (
     <PhoneBook>
       <ContactForm />
